@@ -1,5 +1,3 @@
-გეთანხმები — აქ არის სუფთად და სწორად ფორმატირებული **ფოლდერის სტრუქტურა**, Markdown-ის წესებით, რომ სწორად გამოჩნდეს GitHub-ზე ან Markdown preview-ში:
-
 ```markdown
 # საკრედიტო რისკის შეფასება ლოგისტიკური რეგრესიით
 
@@ -22,24 +20,20 @@
 
 ## 📁 ფოლდერის სტრუქტურა
 
-```
-
-german-credit-risk-logistic-regression/
-├── data/
-│   ├── german\_credit\_data.csv
-│   ├── X\_train.csv
-│   ├── X\_test.csv
-│   ├── y\_train.csv
-│   ├── y\_test.csv
-│   ├── logistic\_model.joblib
-│   └── confusion\_matrix.png
-├── src/
-│   ├── preprocess.py
-│   └── train\_model.py
-├── requirements.txt
-└── README.md
-
-````
+- german-credit-risk-logistic-regression/
+  - data/
+    - german_credit_data.csv
+    - X_train.csv
+    - X_test.csv
+    - y_train.csv
+    - y_test.csv
+    - logistic_model.joblib
+    - confusion_matrix.png
+  - src/
+    - preprocess.py
+    - train_model.py
+  - requirements.txt
+  - README.md
 
 ---
 
@@ -109,6 +103,3 @@ pip install -r requirements.txt
 ## 📚 წყარო
 
 მონაცემები მიღებულია `German Credit Data` dataset-დან, ხოლო `Risk` ცვლადი დამატებულია პირობითი ლოგიკით მხოლოდ სასწავლო მიზნებისთვის.
-
-```
-```
