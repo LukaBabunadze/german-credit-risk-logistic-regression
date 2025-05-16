@@ -1,3 +1,5 @@
+გეთანხმები — აქ არის სუფთად და სწორად ფორმატირებული **ფოლდერის სტრუქტურა**, Markdown-ის წესებით, რომ სწორად გამოჩნდეს GitHub-ზე ან Markdown preview-ში:
+
 ```markdown
 # საკრედიტო რისკის შეფასება ლოგისტიკური რეგრესიით
 
@@ -8,13 +10,13 @@
 
 ## 🔧 გამოყენებული ტექნოლოგიები
 
-- Python
-- pandas
-- numpy
-- scikit-learn
-- matplotlib
-- seaborn
-- joblib
+- Python  
+- pandas  
+- numpy  
+- scikit-learn  
+- matplotlib  
+- seaborn  
+- joblib  
 
 ---
 
@@ -24,16 +26,16 @@
 
 german-credit-risk-logistic-regression/
 ├── data/
-│   ├── german\_credit\_data.csv         # საწყისი მონაცემები
-│   ├── X\_train.csv / X\_test.csv       # გაწმენდილი მონაცემები
-│   ├── y\_train.csv / y\_test.csv       # მიზნობრივი ცვლადები
-│   ├── logistic\_model.joblib          # შენახული მოდელი
-│   └── confusion\_matrix.png           # მოდელის ვიზუალიზაცია
-│
+│   ├── german\_credit\_data.csv
+│   ├── X\_train.csv
+│   ├── X\_test.csv
+│   ├── y\_train.csv
+│   ├── y\_test.csv
+│   ├── logistic\_model.joblib
+│   └── confusion\_matrix.png
 ├── src/
-│   ├── preprocess.py                  # მონაცემების გაწმენდა და გადამუშავება
-│   └── train\_model.py                 # მოდელის სწავლა, შეფასება და შენახვა
-│
+│   ├── preprocess.py
+│   └── train\_model.py
 ├── requirements.txt
 └── README.md
 
@@ -43,40 +45,32 @@ german-credit-risk-logistic-regression/
 
 ## 📥 1. მონაცემების წინასწარი დამუშავება
 
-**ფაილი:** `src/preprocess.py`
+ფაილი: `src/preprocess.py`
 
 - წაიკითხავს `german_credit_data.csv` ფაილს
 - წაშლის `Unnamed: 0` სვეტს
-- ხელოვნურად შექმნის `Risk` ცვლადს შემდეგი ლოგიკით:
-  - თუ არ აქვს „Saving accounts“ ან „Checking account“ **ან** `Credit amount > 5000` → `bad` (0)
+- ხელოვნურად შექმნის `Risk` ცვლადს:
+  - თუ არ აქვს "Saving accounts" ან "Checking account" ან `Credit amount > 5000` → `bad` (0)
   - სხვა შემთხვევაში → `good` (1)
-- კატეგორიულ ცვლადებს გარდაქმნის One-Hot ფორმატში
-- დაყოფს მონაცემებს 70/30-ზე და შეინახავს 4 ცალკე CSV ფაილად
+- გარდაქმნის კატეგორიულ ცვლადებს One-Hot ფორმატში
+- გაყოფს მონაცემებს 70/30-ზე და შეინახავს CSV ფაილებად
 
-**გაშვება:**
+გაშვება:
 ```bash
 python src/preprocess.py
 ````
 
 ---
 
-## 🧠 2. ლოგისტიკური რეგრესიის მოდელის აგება
+## 🧠 2. მოდელის აგება და შეფასება
 
-**ფაილი:** `src/train_model.py`
+ფაილი: `src/train_model.py`
 
-* ჩატვირთავს გაწმენდილ მონაცემებს CSV-ებიდან
-* ააგებს ლოგისტიკურ მოდელს `LogisticRegression(max_iter=1000)`
-* შეაფასებს:
+* სწავლობს ლოგისტიკურ მოდელს `LogisticRegression(max_iter=1000)`
+* აფასებს შედეგებს Accuracy, Confusion Matrix, Classification Report
+* ინახავს მოდელს `logistic_model.joblib` და მატრიცის გამოსახულებას `confusion_matrix.png`
 
-  * `accuracy`
-  * `confusion matrix`
-  * `classification report`
-* შეინახავს:
-
-  * მოდელს: `data/logistic_model.joblib`
-  * ვიზუალიზაციას: `data/confusion_matrix.png`
-
-**გაშვება:**
+გაშვება:
 
 ```bash
 python src/train_model.py
@@ -84,9 +78,7 @@ python src/train_model.py
 
 ---
 
-## 📦 3. შენახული მოდელის გამოყენება
-
-შეიძლება ხელახლა გამოიყენო მოდელი სხვა პროექტში ასე:
+## 📦 3. მოდელის ხელახალი გამოყენება
 
 ```python
 import joblib
@@ -98,21 +90,15 @@ predictions = model.predict(X_new)
 
 ## 📈 ვიზუალიზაცია
 
-მოდელის დაბნეულობის მატრიცა (Confusion Matrix) შეინახება ფაილად:
+მოდელის დაბნეულობის მატრიცა ინახება ფაილად:
 
 ```
 data/confusion_matrix.png
 ```
 
-რომლის ნახვაც შესაძლებელი იქნება როგორც სურათი.
-
 ---
 
 ## ✅ ინსტალაცია
-
-საჭირო ბიბლიოთეკები ჩამოწერილია `requirements.txt` ფაილში.
-
-დაყენება:
 
 ```bash
 pip install -r requirements.txt
@@ -122,7 +108,7 @@ pip install -r requirements.txt
 
 ## 📚 წყარო
 
-მონაცემები მიღებულია Kaggle-ზე დაფუძნებული `German Credit Data` dataset-იდან.
-`Risk` ცვლადი დამატებულია მხოლოდ სასწავლო მიზნებისთვის, იმიტირებული ლოგიკით.
+მონაცემები მიღებულია `German Credit Data` dataset-დან, ხოლო `Risk` ცვლადი დამატებულია პირობითი ლოგიკით მხოლოდ სასწავლო მიზნებისთვის.
 
+```
 ```
